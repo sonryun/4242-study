@@ -1,0 +1,451 @@
+---
+layout: single
+title: 스터디 문제 풀이2
+---
+
+<h6>첫번째 문제</h6>
+<p>
+  -js에 연산자를 사용한 결과가 21이면 페이지에 Correct, My age is 21 이라는 창을 띄우고, 
+그 이외의 결과값들은 Try again이라는 창을 띄운다.
+</p>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz1</title>
+</head>
+<body>
+    <button onclick="agecalc()">결과 보기</button>
+
+    <script>
+        function agecalc() {
+            var x = 21, result;
+            result = x;
+
+            if (result === 21) {
+                var str = 'Correct, My age is';
+                alert (str + " " + result);
+            }
+            else {
+                alert("Try again");
+            }
+        }
+    </script>
+</body>
+</html>
+```
+
+<h6>두번째 문제</h6>
+<p>- select css 를 이용하여 옵션을 누르면 alert 창이 나오는 문제 만들기</p>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz2</title>
+</head>
+<body>
+    <select name="keroro" id="keroro" class="selectBasic" onchange="Rank()">
+        <option value="케로로">케로로</option>
+        <option value="도로로">도로로</option>
+        <option value="타마마">타마마</option>
+    </select>
+
+    <script>
+        function Rank() {
+            var select = document.getElementById("keroro");
+            var value = select.value;
+
+            if(value === "케로로") {
+                alert("중사입니다.");
+            } else if(value === "도로로") {
+                alert("병장입니다.");
+            } else {
+                alert("이등병입니다.");
+            }
+        }
+    </script>
+</body>
+</html>
+
+```
+
+<h6>세번째 문제</h6>
+<p>-ㄱ과 ㄴ 중 ㄱ 고르면 o ,ㄴ 고르면 x나오게 하기</p>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz3</title>
+
+    <style>
+        body {
+            font: bold;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        button {
+            background-color: forestgreen;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>다음 중 어떤 것이 ㄱ일까요?</h1>
+
+    <button id="button1" onclick="question('ㄱ')">ㄱ</button>
+    <button id="button2" onclick="question('ㄴ')">ㄴ</button>
+
+    <script>
+        function question(answer) {
+
+            if(answer==="ㄱ") {
+                alert("O");
+            } else{
+                alert("X");
+            }
+        }
+    </script>
+</body>
+</html>
+```
+
+<h6>네번째 문제</h6>
+<p>
+  -Q1.정답버튼을 눌렀을 때 무지개의 4번째 색인 Green이 alert창에 뜨게 하기. 옳지 않을 시에는 NaN -> Try again 이라는 창이 뜸
+Q1-1.colorName 글자수의 짝/홀수를 감별하는 코드의 빈칸을 채워넣기.
+</p>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz4</title>
+</head>
+<body>
+    <h3>무지개의 4번째 색은 뭘까요?</h3>
+    <button onclick="selectColor();">정답!</button>
+
+    <script>
+        function selectColor() {
+            var color = 4;
+            var colorName;
+
+            switch (color) {
+                case 1:
+                    colorName = 'Red';
+                    break;
+                case 2:
+                    colorName = 'Orange';
+                    break;
+                case 3:
+                    colorName = 'Yellow';
+                    break;
+                case 4:
+                    colorName = 'Green';
+                    break;
+                case 5:
+                    colorName = 'Blue';
+                    break;
+                case 6:
+                    colorName = 'Deepblue';
+                    break;
+                case 7:
+                    colorName = 'Purple';
+                    break;
+                default:
+                    colorName = NaN;
+            }
+
+            if (colorName === 'Purple') {
+                alert(colorName);
+            } else {
+                alert('Try again');
+            }
+
+            if (typeof colorName == 'string') {
+                if (colorName.length % 2 === 0) {
+                    alert(colorName + '의 글자수는 짝수 입니다');
+                } else {
+                    alert(colorName + '의 글자수는 홀수 입니다');
+                }
+            } else {
+                alert('Try again');
+            }
+        }
+    </script>
+</body>
+</html>
+```
+
+<h6>다섯번째 문제</h6>
+<p>-숫자 세 개를 입력받아 대소비교하기
+1. 사용자로부터 값 3개 입력받는다.
+2. 입력받은 값을 box에 보이게 한다.
+3. 비교하기 버튼을 눌렀을 때 결과창에 가장 큰 수와 가장 작은 수가 무엇인지 안내한다.</p>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz5</title>
+
+    <style>
+        .main {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .top {
+            width: 280px;
+            height: 180px;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: beige;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .box1, .box2, .box3  {
+            width: 70px;
+            height: 40px;
+            border: 1px solid black;
+            background-color: white;
+            margin-top: 10px;
+            font-size: 22px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        input[type="text"] {
+            width: 250px;
+            height: 50px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        button {
+            width: 253px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="top">
+            <div class="box1"></div>
+            <div class="box2"></div>
+            <div class="box3"></div>
+            <input type="text" placeholder="결과 창입니다" readonly>
+            <button onclick="Comparison()">비교하기</button>
+        </div>
+    </div>
+    <script>
+        var box1_value = prompt("첫 번째 값을 입력해주세요.")
+        document.querySelector('.box1').textContent = box1_value;
+
+        var box2_value = prompt("두 번째 값을 입력해주세요.")
+        document.querySelector('.box2').textContent = box2_value;
+
+        var box3_value = prompt("세 번째 값을 입력해주세요.")
+        document.querySelector('.box3').textContent = box3_value;
+
+        function Comparison() {
+            var box1_value = parseInt(document.querySelector('.box1').textContent);
+            var box2_value = parseInt(document.querySelector('.box2').textContent);
+            var box3_value = parseInt(document.querySelector('.box3').textContent);
+
+            var max, min;
+
+            if (box1_value>box2_value) {
+                max = box1_value;
+                min = box2_value;
+            } else {
+                max = box2_value;
+                min = box1_value;
+            }
+            if (box3_value>max) {
+                max = box3_value;
+            } else if (box3_value<min) {
+                min = box3_value;
+            }
+
+            var result = "가장 큰 수는" + max + ", 가장 작은 수는" +min;
+
+            document.querySelector('input[type="text"]').value = result;
+        }
+    </script>
+</body>
+</html>
+```
+
+<h6>여섯번째 문제</h6>
+<p>
+1월~12월 중 한 달을 입력받아 계절을 출력하는 코드. 3~5월이 입력되면 '봄입니다.'를, 6~8월이 입력되면 '여름입니다.'를, 9~11월이 입력되면 '가을입니다.'를, 12~2월이 입력되면 '겨울입니다.'라는 알림창을 띄워주며 배경 색이 바뀐다.
+</p>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz6</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #inputMonth {
+            width: 40px;
+            height: 20px;
+        }
+
+        #result {
+            width: 100px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h3>몇 월인지 입력해주세요.</h3>
+    <input type="number" id="inputMonth"> 월의 계절은? <br>
+    <br>
+    <button onclick="season()">확인하기</button>
+
+    <script>
+        function season(){
+            let month = document.getElementById('inputMonth').value;
+
+            if (month >= 3 && month <= 5) {
+                alert('봄입니다');
+                document.body.style.backgroundColor = '#fbe4eb';
+            } else if (month >= 6 && month <= 8) {
+                alert('여름입니다');
+                document.body.style.backgroundColor = '#dbead5';
+            } else if (month >= 9 && month <= 11) {
+                alert('가을입니다');
+                document.body.style.backgroundColor = '#ffead8';
+            } else if (month == 12 || month <= 2) {
+                alert('겨울입니다');
+                document.body.style.backgroundColor = '#e6f4fa';
+            } else {
+                alert('올바른 월을 입력하세요. (1~12)');
+            }
+        }
+    </script>
+</body>
+</html>
+```
+
+<h6>일곱번째 문제</h6>
+<p>-두 수를 입력하여 두 수를 비교한 다음 연산자를 출력하는 프로그램. 이때 입력하는 숫자의 제한은 -1000~1000으로 지정하여 제한 범위 숫자를 넘겼을시 제한 범위의 경고창을 띄운다.</p>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz7</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(205, 255, 119, 0.1);
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            background-color: #f3ffbf;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: rgb(250, 199, 208);
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>두 수 비교 및 연산자 출력</h2>
+        <input type="number" id="num1" placeholder="첫 번째 숫자(-1000 ~ 1000)">
+        <input type="number" id="num2" placeholder="두 번째 숫자(-1000 ~ 1000)">
+        <button onclick="compareNumbers()">연산자 출력</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function compareNumbers() {
+            const num1 = parseInt(document.getElementById('num1').value);
+            const num2 = parseInt(document.getElementById('num2').value);
+            const resultDiv = document.getElementById('result');
+
+            if (isNaN(num1) || isNaN(num2) || num1 < -1000 || num1 > 1000 || num2 < -1000 || num2 > 1000) {
+                alert("숫자의 범위는 -1000부터 1000까지로 제한됩니다.");
+                resultDiv.innerText = '';
+            } else {
+                let operator = '';
+                if (num1 > num2) {
+                    operator = '>';
+                } else if (num1 < num2) {
+                    operator = '<';
+                } else {
+                    operator = '='
+                }
+                resultDiv.textContent = `연산자: ${operator}`;
+            }
+        } 
+    </script>
+</body>
+</html>
+```
