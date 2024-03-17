@@ -1,4 +1,4 @@
-#두번째 문제
+# 두번째 문제
 <p>-추가열에 해당하는 버튼 클릭 시 해당하는 요소가 box안에 나타나고 객체에 프로퍼티 추가 및 콘솔로그,
 삭제열에 해당하는 버튼 클릭 시 해당하는 요소가 box안에 사라지고 객체에 프로퍼티 삭 및 콘솔로그</p>
 
@@ -89,36 +89,56 @@
     </div>
 
     <script>
+        var person = {
+            
+        };
+
         document.querySelector('.p_name').addEventListener('click', function p_btn_name() {
             document.querySelector(".name").style.display = 'block'
+            person.name = '손륜';
+            console.log(person);
         });
 
         document.querySelector('.p_age').addEventListener('click', function p_btn_age() {
             document.querySelector(".age").style.display = 'block'
+            person.age = 21;
+            console.log(person);
         });
 
         document.querySelector('.p_hobby').addEventListener('click', function p_btn_hobby() {
             document.querySelector(".hobby").style.display = 'block'
+            person.hobby = '피아노';
+            console.log(person);
         });
 
         document.querySelector('.p_color').addEventListener('click', function p_btn_color() {
             document.querySelector(".color").style.display = 'block'
+            person.color = '초록색';
+            console.log(person);
         });
 
         document.querySelector('.m_name').addEventListener('click', function m_btn_name() {
             document.querySelector(".name").style.display = 'none'
+            delete person.name;
+            console.log(person);
         });
 
         document.querySelector('.m_age').addEventListener('click', function m_btn_age() {
             document.querySelector(".age").style.display = 'none'
+            delete person.age;
+            console.log(person);
         });
 
         document.querySelector('.m_hobby').addEventListener('click', function m_btn_hobby() {
             document.querySelector(".hobby").style.display = 'none'
+            delete person.hobby;
+            console.log(person);
         });
 
         document.querySelector('.m_color').addEventListener('click', function m_btn_color() {
             document.querySelector(".color").style.display = 'none'
+            delete person.color;
+            console.log(person);
         });
     </script>
 </body>
