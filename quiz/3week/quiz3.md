@@ -10,7 +10,16 @@
     <title>quiz3</title>
 </head>
 <body>
-    <div id="studentInfo"></div>
+    <div id="studentInfo">
+        <h1>학생1</h1>
+        <p id="num1"></p>
+        <hr>
+        <h1>학생2</h1>
+        <p id="num2"></p>
+        <hr>
+        <h1>학생3</h1>
+        <p id="num3"></p>
+    </div>
 
     <script>
         const student = [
@@ -47,13 +56,15 @@
         ];
 
         const studentInfoContainer = document.getElementById('studentInfo'); 
-
-        let studentInfoText = '';
-        studentInfoText += '이름: ' + student[0].이름 + ', 나이: ' + student[0].나이 + ', 키: ' + student[0].정보.키 + ', 시력: ' + student[0].정보.시력 + ', 좋아하는 활동: ' + student[0].좋아하는활동.join(', ') + ', 성별: ' + student[0].성별;
-        studentInfoText += '이름: ' + student[1].이름 + ', 나이: ' + student[1].나이 + ', 키: ' + student[1].정보.키 + ', 시력: ' + student[1].정보.시력 + ', 좋아하는 활동: ' + student[1].좋아하는활동.join(', ') + ', 성별: ' + student[1].성별;
-        studentInfoText += '이름: ' + student[2].이름 + ', 나이: ' + student[2].나이 + ', 키: ' + student[2].정보.키 + ', 시력: ' + student[2].정보.시력 + ', 좋아하는 활동: ' + student[2].좋아하는활동.join(', ') + ', 성별: ' + student[2].성별;
         
-        studentInfoContainer.textContent = studentInfoText;
+        const num1 = document.getElementById('num1');
+        const num2 = document.getElementById('num2');
+        const num3 = document.getElementById('num3');
+
+        num1.textContent = `이름: ${student[0].이름} \n 나이: ${student[0].나이}\n시력: ${student[0].정보.시력}\n키: ${student[0].정보.키}\n좋아하는 활동: ${student[0].좋아하는활동}\n성별: ${student[0].성별}`;
+        num2.textContent = `이름: ${student[1].이름}\n나이: ${student[1].나이}\n시력: ${student[1].정보.시력}\n키: ${student[1].정보.키}\n좋아하는 활동: ${student[1].좋아하는활동}\n성별: ${student[1].성별}`;
+        num3.textContent = `이름: ${student[2].이름}\n나이: ${student[2].나이}\n시력: ${student[2].정보.시력}\n키: ${student[2].정보.키}\n좋아하는 활동: ${student[2].좋아하는활동}\n성별: ${student[2].성별}`;
+        
     </script>
 </body>
 </html>
