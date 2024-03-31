@@ -1,4 +1,5 @@
 # 첫번째 문제
+<p>-배열에서 최댓값과 최솟값 비교하기</p>
 
 ```html
 function MaxOrMin(numbers) {
